@@ -1,6 +1,6 @@
 namespace Trolls3
 {
-    public class ClasseQuestão
+    public class Questao
     {
         public string Pergunta;
         public string Resposta1;
