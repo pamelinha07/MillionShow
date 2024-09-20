@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trolls3.MainPage">
 
-   <Grid>
+        <Grid>
                 <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -32,27 +33,26 @@
                        Grid.Row="1"
                        Grid.Column="0"
                        Grid.ColumnSpan="3"/>
+                
+                <Label Text=""
+                x:Name="labelpergunta"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="3"/>
 
                 <Button Text="Resposta1"
                         x:Name="Resposta01"
                         BackgroundColor="Blue"
-                        TextColor="White"
-                        FontSize="12"
-                        Grid.Row="2"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="3"/>
-
-                <Button Text="Resposta2"
-                        x:Name="Resposta02"
-                        BackgroundColor="Blue"
+                        Clicked="Botao1"
                         TextColor="White"
                         FontSize="12"
                         Grid.Row="3"
                         Grid.Column="0"
                         Grid.ColumnSpan="3"/>
-                        
-                <Button Text="Resposta3"
-                        x:Name="Resposta03"
+
+                <Button Text="Resposta2"
+                        x:Name="Resposta02"
+                        Clicked="Botao2"
                         BackgroundColor="Blue"
                         TextColor="White"
                         FontSize="12"
@@ -60,8 +60,9 @@
                         Grid.Column="0"
                         Grid.ColumnSpan="3"/>
                         
-                <Button Text="Resposta4"
-                        x:Name="Resposta04"
+                <Button Text="Resposta3"
+                        x:Name="Resposta03"
+                        Clicked="Botao3"
                         BackgroundColor="Blue"
                         TextColor="White"
                         FontSize="12"
@@ -69,28 +70,39 @@
                         Grid.Column="0"
                         Grid.ColumnSpan="3"/>
                         
-                <Button Text="Resposta5"
-                        x:Name="Resposta05"
+                <Button Text="Resposta4"
+                        x:Name="Resposta04"
+                        Clicked="Botao4"
                         BackgroundColor="Blue"
                         TextColor="White"
                         FontSize="12"
                         Grid.Row="6"
                         Grid.Column="0"
                         Grid.ColumnSpan="3"/>
+                        
+                <Button Text="Resposta5"
+                        x:Name="Resposta05"
+                        BackgroundColor="Blue"
+                        Clicked="Botao5"
+                        TextColor="White"
+                        FontSize="12"
+                        Grid.Row="7"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"/>
 
                 <Button BackgroundColor="White"
                         TextColor="Black"
-                        Grid.Row="7"
+                        Grid.Row="8"
                         Grid.Column="0"/>
                         
                 <Button BackgroundColor="White"
                         TextColor="Black"
-                        Grid.Row="7"
+                        Grid.Row="8"
                         Grid.Column="1"/>
                         
                 <Button BackgroundColor="White"
                         TextColor="Black"
-                        Grid.Row="7"
+                        Grid.Row="8"
                         Grid.Column="2"/>
         </Grid>
 
