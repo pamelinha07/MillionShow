@@ -40,3 +40,49 @@ public class Gerenciador
         }
     }
 }
+    public int Pontuação {get; private set;}
+    int NivelAtual = 0;
+    void Inicializar ()
+    {
+        Pontuação = 0;
+        NivelAtual = 0;
+        PróximaQuestão ();
+    }
+      public async void VerificaCorreta (int RR)
+      {
+        if (QuestaoCorrente.EstaCorreto(RR))
+        {
+            await Task.Delay (1000);
+            AdicionaPontuação (NívelAtual);
+            NívelAtual++;
+            PróximaQuestão ();
+        }
+          else
+      }
+         await App.Current.MainPage.DisplayAlert("Fim","Você Errou","Ok");
+         Iniatilize();
+         
+         void AdicionaPontuação (int RR)
+         {
+            if (n==1)
+            Pontuação= 1000;
+            else if (n==2)
+            Pontuação= 2000;
+            else if (n==3)
+            Pontuação= 5000;
+            else if (n==4)
+            Pontuação= 10 000;
+            else if (n==5)
+            Pontuação= 20 000;
+            else if (n==6)
+            Pontuação= 50 000;
+            else if (n==7)
+            Pontuação= 100 000;
+            else if (n==8)
+            Pontuação= 200 000;
+            else if (n==9)
+            Pontuação= 500 000;
+            else
+            Pontuação= 1000 000;
+
+         }
