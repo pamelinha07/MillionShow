@@ -11,16 +11,16 @@ public class Gerenciador
 
     Label labelPontuacao;
     Label labelNivel;
-    int NivelResposta = 0;
+    int NivelResposta = 1;
     
     void Inicializar ()
     {
         Pontuacao = 0;
-        NivelResposta = 0;
+        NivelResposta = 1;
         ProximaQuestao();
     }
 
-    public Gerenciador( Label labelPergunta, Button btnResp01, Button btnResp02, Button btnResp03, Button btnResp04, Button btnResp05, Label LabelNivel, Label LabelPontuacao){
+    public Gerenciador(Label labelPergunta, Button btnResp01, Button btnResp02, Button btnResp03, Button btnResp04, Button btnResp05, Label LabelNivel, Label LabelPontuacao){
         CriarQuestoes(labelPergunta, btnResp01, btnResp02, btnResp03, btnResp04, btnResp05);
         this.labelNivel = labelNivel;
         this.labelPontuacao = labelPontuacao;
@@ -1315,69 +1315,66 @@ public class Gerenciador
         questaoCorrente.Desenhar();
     }
     
-      public async void VerificaCorreta (int RR)
-      {
+    
+
+    public async void VerificaCorreta (int RR)
+    {
         if (questaoCorrente.VerificaResposta(RR))
         {
             await Task.Delay(1000);
             AdicionaPontuação(NivelResposta);
             NivelResposta++;
             ProximaQuestao();
-            labelNivel.Text = "Nível: " + Pontuacao.ToString();
-            labelPontuacao.Text = "Pontuação: " + NivelResposta.ToString();
+            labelNivel.Text = "Nível: " + NivelResposta.ToString();
+            labelPontuacao.Text = "Pontuação: " + Pontuacao.ToString();
         }
-          else
-          {
+        else
+        {
             await App.Current.MainPage.DisplayAlert("Fim","Você Errou","Ok");
             Inicializar();
-          }
-      }
-      
-         
-         
-        public void AdicionaPontuação(int RR)
-         {
-            if (RR==1)
+        }
+    }
+    public void AdicionaPontuação(int RR)
             {
-                Pontuacao= 1000;
+                if (RR==1)
+                {
+                    Pontuacao= 1000;
+                }
+                else if (RR==2)
+                {
+                    Pontuacao= 2000;
+                }
+                else if (RR==3)
+                {
+                    Pontuacao= 5000;
+                }
+                else if (RR==4)
+                {
+                    Pontuacao= 10000;
+                }
+                else if (RR==5)
+                {
+                    Pontuacao= 20000;
+                }
+                else if (RR==6)
+                {
+                    Pontuacao= 50000;
+                }
+                else if (RR==7)
+                {
+                    Pontuacao= 100000;
+                }
+                else if (RR==8)
+                {
+                    Pontuacao= 500000;
+                }
+                else if (RR==9)
+                {
+                    Pontuacao= 500000;
+                }
+                else
+                {
+                    Pontuacao= 1000000;
+                }
             }
-            else if (RR==2)
-            {
-                Pontuacao= 2000;
-            }
-            else if (RR==3)
-            {
-                Pontuacao= 5000;
-            }
-            else if (RR==4)
-            {
-                Pontuacao= 10000;
-            }
-            else if (RR==5)
-            {
-                Pontuacao= 20000;
-            }
-            else if (RR==6)
-            {
-                Pontuacao= 50000;
-            }
-            else if (RR==7)
-            {
-                Pontuacao= 100000;
-            }
-            else if (RR==8)
-            {
-                Pontuacao= 500000;
-            }
-            else if (RR==9)
-            {
-                Pontuacao= 500000;
-            }
-            else
-            {
-                Pontuacao= 1000000;
-            }
-
-         }
-
-}
+    }
