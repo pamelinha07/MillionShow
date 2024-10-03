@@ -8,8 +8,8 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
-		gerenciador= new Gerenciador(labelpergunta, Resposta01, Resposta02, Resposta03, Resposta04, Resposta05, labelNivel, labelPontuacao);
-		gerenciador.ProximaQuestao();	
+		gerenciador= new Gerenciador(labelPontuacao, labelpergunta, labelNivel, Resposta01, Resposta02, Resposta03, Resposta04, Resposta05);
+		gerenciador.ProximaQuestao();
 	}
 	void Botao1(object sender, EventArgs args){
         gerenciador.VerificaCorreta(1);
@@ -34,4 +34,18 @@ public partial class MainPage : ContentPage
         gerenciador.VerificaCorreta(5);
 
 	}
+	void OnAjudaRetirarCliked(object s, EventArgs e)
+	{
+		var ajuda = new RetiraErradas();
+		ajuda.ConfiguraDesenho(Resposta01, Resposta02, Resposta03, Resposta04, Resposta05);
+		ajuda.RealizaAjuda(gerenciador.GetQuestaoCorrente());
+		(s as Button).IsVisible = false;
+	}
+	void OnAjudaPulaCliked (object s, EventArgs e)
+	{
+		gerenciador.ProximaQuestao();
+		(s as Button).IsVisible = false;
+	}
+
+
 }	 

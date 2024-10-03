@@ -8,7 +8,7 @@ public abstract class IAjuda
     protected Button btnResp05;
     protected Frame frameAjuda;
 
-    public void  ConfiguraDesenho (Button btnResp01, Button btnResp02, Button btnResp03, Button btnResp04, Button btnResp05)
+    public void ConfiguraDesenho(Button btnResp01, Button btnResp02, Button btnResp03, Button btnResp04, Button btnResp05)
     {
         this.btnResp01 = btnResp01;
         this.btnResp02 = btnResp02;

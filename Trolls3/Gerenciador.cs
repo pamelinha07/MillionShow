@@ -3,39 +3,40 @@ namespace Trolls3;
 public class Gerenciador
 {
 
-    List <Questao> listaQuestoes = new List<Questao>();
-    List <int> listaQuestoesRespondidas = new List<int>();
+    List<Questao> listaQuestoes = new List<Questao>();
+    List<int> listaQuestoesRespondidas = new List<int>();
     Questao questaoCorrente;
 
-    public int Pontuacao{get; private set;}
+    public int Pontuacao { get; private set; }
 
     Label labelPontuacao;
     Label labelNivel;
     int NivelResposta = 1;
-    
-    void Inicializar ()
+
+    void Inicializar()
     {
         Pontuacao = 0;
         NivelResposta = 1;
         ProximaQuestao();
     }
 
-    public Gerenciador(Label labelPergunta, Button btnResp01, Button btnResp02, Button btnResp03, Button btnResp04, Button btnResp05, Label LabelNivel, Label LabelPontuacao){
+    public Gerenciador(Label labelPontuacao, Label NivelResposta, Label labelPergunta, Button btnResp01, Button btnResp02, Button btnResp03, Button btnResp04, Button btnResp05)
+    {
         CriarQuestoes(labelPergunta, btnResp01, btnResp02, btnResp03, btnResp04, btnResp05);
         this.labelNivel = labelNivel;
         this.labelPontuacao = labelPontuacao;
     }
 
-     void CriarQuestoes (Label labelPergunta, Button buttonResp01, Button buttonResp02, Button buttonResp03, Button buttonResp04, Button buttonResp05)
-     {
+    void CriarQuestoes(Label labelPergunta, Button buttonResp01, Button buttonResp02, Button buttonResp03, Button buttonResp04, Button buttonResp05)
+    {
         var q1 = new Questao();
         q1.Nivelresposta = 1;
-        q1.Pergunta= "Qual o nome do meu cachorro?";
-        q1.Resposta1 ="Trovao";
-        q1.Resposta2 ="Fiote";
-        q1.Resposta3 ="Jeredy";
-        q1.Resposta4 ="Chico";
-        q1.Resposta5 ="Bob";
+        q1.Pergunta = "Qual o nome do meu cachorro?";
+        q1.Resposta1 = "Trovao";
+        q1.Resposta2 = "Fiote";
+        q1.Resposta3 = "Jeredy";
+        q1.Resposta4 = "Chico";
+        q1.Resposta5 = "Bob";
 
         q1.Respostacorreta = 2;
         q1.ConfiguraEstruturaDesenho(labelPergunta, buttonResp01, buttonResp02, buttonResp03, buttonResp04, buttonResp05);
@@ -754,7 +755,7 @@ public class Gerenciador
         q56.Respostacorreta = 1;
         q56.ConfiguraEstruturaDesenho(labelPergunta, buttonResp01, buttonResp02, buttonResp03, buttonResp04, buttonResp05);
         listaQuestoes.Add(q56);
-    
+
         // Pergunta 57
         var q57 = new Questao();
         q57.Nivelresposta = 6;
@@ -1302,27 +1303,32 @@ public class Gerenciador
         q100.Respostacorreta = 1;
         q100.ConfiguraEstruturaDesenho(labelPergunta, buttonResp01, buttonResp02, buttonResp03, buttonResp04, buttonResp05);
         listaQuestoes.Add(q100);
-     }  
-       public void ProximaQuestao(){
-        var numRandom = Random.Shared.Next(0, listaQuestoes.Count -1);
+    }
+    public void ProximaQuestao()
+    {
+        var numRandom = Random.Shared.Next(0, listaQuestoes.Count - 1);
 
-        while(listaQuestoesRespondidas.Contains(numRandom)){
-            numRandom = Random.Shared.Next(0,listaQuestoes.Count - 1);
-        } 
+        while (listaQuestoesRespondidas.Contains(numRandom))
+        {
+            numRandom = Random.Shared.Next(0, listaQuestoes.Count - 1);
+        }
 
         listaQuestoesRespondidas.Add(numRandom);
         questaoCorrente = listaQuestoes[numRandom];
         questaoCorrente.Desenhar();
     }
-    
-    
 
-    public async void VerificaCorreta (int RR)
+    public Questao GetQuestaoCorrente()
     {
-        if (questaoCorrente.VerificaResposta(RR))
+        return questaoCorrente;
+    }
+
+    public async void VerificaCorreta(int RR)
+    {
+        if(questaoCorrente.VerificaResposta(RR))
         {
             await Task.Delay(1000);
-            AdicionaPontuação(NivelResposta);
+            AdicionaPontuacao(NivelResposta);
             NivelResposta++;
             ProximaQuestao();
             labelNivel.Text = "Nível: " + NivelResposta.ToString();
@@ -1330,51 +1336,51 @@ public class Gerenciador
         }
         else
         {
-            await App.Current.MainPage.DisplayAlert("Fim","Você Errou","Ok");
+            await App.Current.MainPage.DisplayAlert("Fim", "Você Errou", "Ok");
             Inicializar();
         }
     }
-    public void AdicionaPontuação(int RR)
-            {
-                if (RR==1)
-                {
-                    Pontuacao= 1000;
-                }
-                else if (RR==2)
-                {
-                    Pontuacao= 2000;
-                }
-                else if (RR==3)
-                {
-                    Pontuacao= 5000;
-                }
-                else if (RR==4)
-                {
-                    Pontuacao= 10000;
-                }
-                else if (RR==5)
-                {
-                    Pontuacao= 20000;
-                }
-                else if (RR==6)
-                {
-                    Pontuacao= 50000;
-                }
-                else if (RR==7)
-                {
-                    Pontuacao= 100000;
-                }
-                else if (RR==8)
-                {
-                    Pontuacao= 500000;
-                }
-                else if (RR==9)
-                {
-                    Pontuacao= 500000;
-                }
-                else
-                {
-                    Pontuacao= 1000000;
-                }
-            }
+    public void AdicionaPontuacao(int RR)
+    {
+        if (RR == 1)
+        {
+            Pontuacao = 1000;
+        }
+        else if (RR == 2)
+        {
+            Pontuacao = 2000;
+        }
+        else if (RR == 3)
+        {
+            Pontuacao = 5000;
+        }
+        else if (RR == 4)
+        {
+            Pontuacao = 10000;
+        }
+        else if (RR == 5)
+        {
+            Pontuacao = 20000;
+        }
+        else if (RR == 6)
+        {
+            Pontuacao = 50000;
+        }
+        else if (RR == 7)
+        {
+            Pontuacao = 100000;
+        }
+        else if (RR == 8)
+        {
+            Pontuacao = 500000;
+        }
+        else if (RR == 9)
+        {
+            Pontuacao = 500000;
+        }
+        else if (RR == 10)
+        {
+            Pontuacao = 1000000;
+        }
     }
+}

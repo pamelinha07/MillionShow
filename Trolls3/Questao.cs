@@ -34,6 +34,12 @@ public class Questao
         Button3.Text = Resposta3;
         Button4.Text = Resposta4;
         Button5.Text = Resposta5;
+
+        Button1.IsVisible = true;
+        Button2.IsVisible = true;
+        Button3.IsVisible = true;
+        Button4.IsVisible = true;
+        Button5.IsVisible = true;
     }
     private Button QualBTN(int RR)
     {
@@ -93,8 +99,9 @@ public class Questao
         Button4 = buttonresposta4;
         Button5 = buttonresposta5;
     }
-
-
-
-
+    public bool Equals(Questao q)
+    {
+        return this.Nivelresposta == q.Nivelresposta &&
+               this.Pergunta == q.Pergunta;
+    }
 }
