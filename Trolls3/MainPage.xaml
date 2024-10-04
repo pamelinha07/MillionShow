@@ -51,8 +51,7 @@
                        Grid.ColumnSpan="3"
                        Margin="10, 5"/>
                 
-                <Label Text="Lorem ipsum indolor"
-                       x:Name="labelpergunta"
+                <Label x:Name="labelpergunta"
                        Grid.Row="3"
                        Grid.Column="0"
                        Grid.ColumnSpan="3"
@@ -113,23 +112,38 @@
                         Grid.ColumnSpan="3"
                         Margin="10, 5"/>
 
-                <Button BackgroundColor="White"
+                <Button Text="-3"
+                        Clicked="OnAjudaRetirarCliked"
+                        BackgroundColor="White"
                         TextColor="Black"
                         Grid.Row="9"
                         Grid.Column="0"
                         Margin="10, 5"/>
                         
-                <Button BackgroundColor="White"
+                <Button Text="Pular"
+                        Clicked="OnAjudaPulaCliked"
+                        BackgroundColor="White"
                         TextColor="Black"
                         Grid.Row="9"
                         Grid.Column="1"
                         Margin="10, 5"/>
                         
-                <Button BackgroundColor="White"
+                <Button Text="Universitários"
+                        Clicked="OnUniversitariosClicked"
+                        BackgroundColor="White"
                         TextColor="Black"
                         Grid.Row="9"
                         Grid.Column="2"
                         Margin="10, 5"/>
+
+                <!-- <Frame> 
+                        <VerticalStackLayout>
+                                <Label Text="Universitários"
+                                       VerticalTextAlignment="Center"/>
+
+                        </VerticalStackLayout>
+
+                </Frame> -->
         </Grid>
         </ScrollView>
 </ContentPage>

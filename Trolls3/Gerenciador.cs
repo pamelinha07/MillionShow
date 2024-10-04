@@ -23,7 +23,7 @@ public class Gerenciador
     public Gerenciador(Label labelPontuacao, Label NivelResposta, Label labelPergunta, Button btnResp01, Button btnResp02, Button btnResp03, Button btnResp04, Button btnResp05)
     {
         CriarQuestoes(labelPergunta, btnResp01, btnResp02, btnResp03, btnResp04, btnResp05);
-        this.labelNivel = labelNivel;
+        this.labelNivel = NivelResposta;
         this.labelPontuacao = labelPontuacao;
     }
 

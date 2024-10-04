@@ -8,7 +8,7 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
-		gerenciador= new Gerenciador(labelPontuacao, labelpergunta, labelNivel, Resposta01, Resposta02, Resposta03, Resposta04, Resposta05);
+		gerenciador= new Gerenciador(labelPontuacao, labelNivel, labelpergunta, Resposta01, Resposta02, Resposta03, Resposta04, Resposta05);
 		gerenciador.ProximaQuestao();
 	}
 	void Botao1(object sender, EventArgs args){
@@ -47,5 +47,10 @@ public partial class MainPage : ContentPage
 		(s as Button).IsVisible = false;
 	}
 
+	void OnUniversitariosClicked(object s, EventArgs e)
+	{
+		var Universitarios = new Universitarios();
+		(s as Button).IsVisible = false;
 
+	}
 }	 
