@@ -1,4 +1,7 @@
-﻿namespace Trolls3;
+﻿using Microsoft.Maui.Controls.Shapes;
+using Windows.Media.Capture.Core;
+
+namespace Trolls3;
 
 public partial class MainPage : ContentPage
 {
@@ -44,8 +47,10 @@ public partial class MainPage : ContentPage
 	void OnAjudaPulaCliked (object s, EventArgs e)
 	{
 		gerenciador.ProximaQuestao();
-		(s as Button).IsVisible = false;
+		(s as Button).IsVisible = true;
 	}
+		
+	
 
 	void OnUniversitariosClicked(object s, EventArgs e)
 	{
