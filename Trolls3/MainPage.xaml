@@ -7,21 +7,21 @@
         <ScrollView>
         <Grid>
                 <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
         
                 <Image Source="showdomilhao.png"
@@ -112,7 +112,7 @@
                         Grid.ColumnSpan="3"
                         Margin="10, 5"/>
 
-                <Button Text="-3"
+                <Button Text="- 3"
                         Clicked="OnAjudaRetirarCliked"
                         BackgroundColor="White"
                         TextColor="Black"
@@ -120,8 +120,9 @@
                         Grid.Column="0"
                         Margin="10, 5"/>
                         
-                <Button Text="Pular"
+                <Button Text="Pular 3x"
                         Clicked="OnAjudaPulaCliked"
+                        x:Name="BotaoPular"
                         BackgroundColor="White"
                         TextColor="Black"
                         Grid.Row="9"

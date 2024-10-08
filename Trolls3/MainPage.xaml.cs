@@ -44,10 +44,18 @@ public partial class MainPage : ContentPage
 		ajuda.RealizaAjuda(gerenciador.GetQuestaoCorrente());
 		(s as Button).IsVisible = false;
 	}
+
+	int i = 3;
 	void OnAjudaPulaCliked (object s, EventArgs e)
 	{
 		gerenciador.ProximaQuestao();
-		(s as Button).IsVisible = true;
+		i--;
+		BotaoPular.Text = "Pular " + i + "x";
+		if(i == 0) 
+		{
+		(s as Button).IsVisible = false;
+		}
+        
 	}
 		
 	
